@@ -1,4 +1,3 @@
-
 name: cicd spring boot app
 
 on:
@@ -10,21 +9,18 @@ on:
 
 
 jobs:
-  build: 
+  build:
     runs-on: ubuntu-latest
-    steps: 
-      -name: Clonar el proyecto
-       uses: actions/checkout@v4
+    steps:
+      - name: Clonar el proyecto
+        uses: actions/checkout@v4
 
-      -name: Ajustamos la version de Java
-       uses: actions/setup-java@v4
-       with: 
-         distribution: 'temurin'
-         java-version: '23'
-         cache: 'maven'
+      - name: Ajustamos la version de Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '23'
+          cache: 'maven'
 
-      -name: Instalar las dependencias
-       run: mvn install -DskipTests 
-
-
-   
+      - name: Instalar las dependencias
+        run: mvn install -DskipTests
